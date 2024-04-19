@@ -5,6 +5,12 @@ oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
 
 Import-Module -Name Terminal-Icons
 
+function export($name, $value) {
+    set-item -force -path "env:$name" -value $value;
+}
+
+export -name "BAT_THEME" -value "Catppuccin Mocha"
+
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineOption -BellStyle None
 Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
